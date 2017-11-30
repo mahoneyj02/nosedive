@@ -34,9 +34,18 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px;
 }
 
-.paginate {
-    margin: 0 0 20px 0;
+.pagination {
+    margin: 10px 0 20px 0;
     font-family: 'sinkin_sans200_x_light', sans-serif;
-    letter-spacing: 10px;
-    text-align: center;
+    letter-spacing: 3px;
+    justify-content: flex-start;
 }
+
+.pagination .previous_page {
+    margin: 0 20px 0 0;
+}
+
+.pagination a {
+    margin: 0 10px 0 10px;
+}
+
