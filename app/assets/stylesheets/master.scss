@@ -24,6 +24,16 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 6px;
 }
 
+.navbar-inverse .navbar-nav .nav-link {
+    border: 1px solid #d0d0d0;
+    margin: 5px 5px;
+    padding: 5px 10px;
+}
+
+.navbar-inverse .navbar-nav .nav-link .sign-up-link {
+    border: 1px solid #8470FF;
+}
+
 .booyah-box {
     -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
     -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
