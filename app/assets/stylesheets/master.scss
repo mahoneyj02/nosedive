@@ -55,6 +55,11 @@ blockquote p {
   display: inline;
 }
 
+img {
+    max-height: 90%;
+    max-width: 100%;
+}
+
 .booyah-box {
     -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
     -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -76,7 +81,6 @@ blockquote p {
     box-shadow: 1px 1px 2px 0 #d0d0d0;
     background: #fff;
     border: 1px solid #ccc;
-    border-top: 2px solid #a9a9a9;
     border-color: #a9a9a9 #bebebd #bebebd #e4e4e4;
     padding: 20px;
 }
@@ -98,6 +102,16 @@ blockquote p {
 
 .pagination span {
     margin: 0 20px 0 0;
+}
+
+.photos-box {
+   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    box-shadow: 1px 1px 2px 0 #d0d0d0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #a9a9a9 #bebebd #bebebd #e4e4e4;
+    padding: 40px; 
 }
 
 .help-block {
