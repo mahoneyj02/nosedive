@@ -45,8 +45,32 @@
 </div>
 <div class="clear"></div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Photo Modal -->
+<div class="modal fade" id="PhotoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Share Pics of <%= @place.name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+          <div class="modal-body">
+            <%= f.input :caption %>
+            <%= f.input :picture %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= f.submit "Add Photo", class: 'btn btn-primary' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Comment Modal -->
+<div class="modal fade" id="CommentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -72,13 +96,19 @@
 <div class="container">
   <div class="photos-box clearfix">
     <h1 class="float-left">Photos</h1>
+    <!-- Button trigger for Photo Modal -->
+    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#PhotoModal">
+      Add Photo
+    </button>
     <div class="clear"></div>
     <div class="row">
       <% @place.photos.each do |photo| %>
         <div class="col-12 col-sm-6 clearfix">
           <%= image_tag photo.picture %>
           <br />
-          <%= photo.caption %>
+          <div class="caption-box">
+            <b><%= photo.caption %></b>
+          </div>
           <br />
         </div>
         <hr>
@@ -90,8 +120,8 @@
 <div class="container">
   <div class="comments-box clearfix">
     <h1 class="float-left">Ratings</h1>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">
+    <!-- Button trigger for Comment Modal -->
+    <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#CommentModal">
       Add Review
     </button>
     <div class="clear"></div>
@@ -110,12 +140,3 @@
     </div>
   </div>
 </div>
-
-<div>
-  <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
-    <%= f.input :caption %>
-    <%= f.input :picture %>
-    <%= f.submit "Add Photo", class: 'btn btn-primary' %>
-  <% end %>
-</div>
-

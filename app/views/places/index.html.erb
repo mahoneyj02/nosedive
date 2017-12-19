@@ -1,30 +1,46 @@
 <% @places.each do |place| %>
     <div class="container">
         <div class="booyah-box">
-            <h1><%= link_to place.name, place_path(place) %></h1>
-            <br />
-            <i><%= place.address %></i>
-            <br />
-            <p><%= place.description %></p>
-            <br />
-            <% if place.user.present? %>
-                <small><%= place.user.email %></small>
-            <% end %>
-            
-            <% if place.comments.present? %>
+            <div class="row">
                 <div class="col-12">
-                    <blockquote>
-                        <% if place.comments.last.humanized_rating.present? %>
-                          <b><%= place.comments.last.humanized_rating %></b> - 
-                        <% end %>
-                        <%= place.comments.last.message %>
-                        <small><%= place.comments.last.user.email %></small>
-                    </blockquote>
+                    <h1><%= link_to place.name, place_path(place) %></h1>
+                    <br />
+                    <i><%= place.address %></i>
+                    <br />
+                    <p><%= place.description %></p>
+                    <% if place.user.present? %>
+                        <small><%= place.user.email %></small>
+                    <% end %>
                 </div>
-            <% end %>
+            </div>
+            <br />
+            <div class="row">
+                <br />
+                <% if place.photos.present? %>
+                <div class="col-6">
+                    <%= image_tag place.photos.last.picture %>
+                    <div class="caption-box">
+                        <b><%= place.photos.last.caption %></b>
+                    </div>
+                </div>
+                <% end %>
+            
+                <% if place.comments.present? %>
+                    <div class="col-6">
+                        <blockquote>
+                            <% if place.comments.last.humanized_rating.present? %>
+                              <b><%= place.comments.last.humanized_rating %></b> - 
+                            <% end %>
+                            <%= place.comments.last.message %>
+                            <small><%= place.comments.last.user.email %></small>
+                        </blockquote>
+                    </div>
+                <% end %>
+            </div>
         </div>
     </div>
-<% end %>
+    
+        <% end %>
 
 <div class="container">
     <%= will_paginate @places %>
