@@ -37,3 +37,28 @@
         </div>
     </div>
 </div>
+
+<div class="clear"></div>
+
+<div class="container">
+    <div class="comments-box">
+        <h1 class="text-center">My Places</h1>
+        <br />
+        <br />
+        <div class="row">
+            <% @user.places.each do |place| %>
+                <div class="col-12 col-sm-6">
+                    <h1><%= link_to place.name, place_path(place) %></h1>
+                    <br />
+                    <i><%= place.address %></i>
+                    <br />
+                    <p><%= place.description %></p>
+                    <% if place.user.present? %>
+                        <small><%= place.user.email %></small>
+                    <% end %>
+                    <hr>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
